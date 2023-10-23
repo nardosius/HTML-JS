@@ -1,0 +1,13 @@
+img {
+    border: solid blue;
+    border-width: 2px;
+}
+h1 {
+    color: blue;
+}
+h2 {
+    color: gray;
+}
+div {
+    margin: 4px;
+}
