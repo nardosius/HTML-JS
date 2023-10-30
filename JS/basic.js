@@ -1,0 +1,15 @@
+console.log('Hello World!');
+console.log("%cHello, World", "color: blue; font-size: 40px");
+var petDog = 'rex';
+var petCat = 'pepper';
+console.log(petDog, petCat);
+console.log("My pet dog's name is: ", petDog);
+console.log("My pet cat's name is: ", petCat);
+var catSound = "purr";
+var dogSound = "woof";
+console.log(petDog, "says ", dogSound);
+console.log(petCat, "says ", catSound);
+catSound = "meow";
+console.log(petCat, "now says ", catSound);
+var petDog = 'Rex';
+console.log(petDog);
