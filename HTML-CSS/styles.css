@@ -1,0 +1,90 @@
+body {
+    background-color: #edefee;
+    font-family: 'Markazi Text', serif;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+header > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    background-color:coral;
+    /* border-radius: 10%; */
+}
+
+nav li {
+    display: inline-block;
+    color: seagreen; 
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    font-family: Cambria;
+    font-size: x-large;    
+}
+
+section {
+    display: flex;
+}
+
+article {
+    flex: 1;
+    
+}
+
+#firstArticle {
+    flex: 1;
+}
+
+#primary {
+    background-color: aquamarine;
+    color: brown;
+    font-family: Cambria;
+    /* border-radius: 5%; */
+    margin-bottom: 5%;
+}
+
+#primary h1 {
+    margin-left: 3rem;
+}
+
+#firstArticle p {
+    text-align: justify;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#secondary {
+    color: brown;
+    font-family: Cambria;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    margin-top: 10%;
+}
+
+footer div {
+    flex: 1;
+}
+
+footer div p {
+    margin-top: 10%;
+}
