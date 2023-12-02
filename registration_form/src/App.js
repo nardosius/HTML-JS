@@ -2,18 +2,18 @@ import "./App.css";
 import { useState } from "react";
 import { validateEmail } from "./utils";
 
+//notice how PasswordErroMessage component is coded in the App.js file
 const PasswordErrorMessage = () => {
       return (
     <p className="FieldError">Password should have at least 8 characters</p>
   );
-  
 };
 
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState({
+  const [password, setPassword] = useState({//notice how useState is initialized as an object
     value: "",
     isTouched: false,
   });
@@ -22,7 +22,7 @@ function App() {
   const getIsFormValid = () => {
     // Implement this function
     return (firstName && validateEmail(email) && password.value.length >= 8 && role !== "role");
-    }    
+    }  //to get length of any string need ".value."  between variable and attribute
   
 
   const clearForm = () => {
@@ -32,16 +32,16 @@ function App() {
     setEmail("");
     setPassword({
       value: "",
-      isTouched: false,});
+      isTouched: false,});//again use state as an object
     setRole("role");
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();//need to prevent HTML behavior on form submit --> stop POST request
     alert("Account created!");
     clearForm();
   };
-
+//the <sup>*</sup> tag is a superscript designator. Shows up as little red * by label
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -49,7 +49,7 @@ function App() {
           <h2>Sign Up</h2>
           <div className="Field">
             <label>
-              First name <sup>*</sup>
+              First name <sup>*</sup> 
             </label>
             <input placeholder="First name" value={firstName} onChange={(e) => {
               setFirstName(e.target.value);
