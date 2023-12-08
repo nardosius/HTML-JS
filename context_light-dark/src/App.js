@@ -1,12 +1,12 @@
 import "./App.css";
-import { ThemeProvider, useTheme } from "./ThemeContext";
-import Switch from "./Switch";
+import { ThemeProvider, useTheme } from "./ThemeContext";//"useTheme is undefined"
+import Switch from "./Switch";//importing the actual onChange attribute
 
 const Title = ({ children }) => {
-  const { theme } = useTheme();
+  const { theme } = useTheme();//theme is undefined in assignment
   return (
-    <h2
-      style={{
+    <h2//theme is now defined inside the h2 tag
+      style={{//this is an object with a ternary statement as a value
         color: theme === "light" ? "black" : "white",
       }}
     >
@@ -19,7 +19,7 @@ const Paragraph = ({ children }) => {
   const { theme } = useTheme();
   return (
     <p
-      style={{
+      style={{//this is an object with a ternary statement as a value
         color: theme === "light" ? "black" : "white",
       }}
     >
@@ -64,7 +64,7 @@ function App() {
   return (
     <div
       className="App"
-      style={{
+      style={{//this is where the actual background color is assigned for use by "toggleTheme"
         backgroundColor: theme === "light" ? "white" : "black",
       }}
     >
@@ -75,7 +75,7 @@ function App() {
 }
 
 function Root() {
-  return (
+  return (//ThemeProvider is a state const defined in ThemeContext.js
     <ThemeProvider>
       <App />
     </ThemeProvider>
