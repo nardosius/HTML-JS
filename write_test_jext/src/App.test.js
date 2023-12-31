@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import FeedbackForm from "./FeedbackForm";
 
-describe("Feedback Form", () => {
+describe("Feedback Form", () => {//this is the start of the test code
+  //the following code block defines variables to be inserted into the various assertions
   test("User is able to submit the form if the score is lower than 5 and additional feedback is provided", () => {
     const score = "3";
     const comment = "The pizza crust was too thick";
@@ -10,7 +11,7 @@ describe("Feedback Form", () => {
 
     // You have to write the rest of the test below to make the assertion pass
     const rangeInput = screen.getByLabelText(/Score:/);
-    fireEvent.change(rangeInput, { target: { value: score } });
+    fireEvent.change(rangeInput, { target: { value: score } });//fireEvent is used to execute commands inside the "(  )"
 
     const textArea = screen.getByLabelText(/Comments:/);
     fireEvent.change(textArea, { target: { value: comment } });
@@ -41,4 +42,4 @@ describe("Feedback Form", () => {
       comment: "",
     });
   });
-});
+});//all of the testing code is inside the "describe" function
