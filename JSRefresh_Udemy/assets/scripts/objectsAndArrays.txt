@@ -1,0 +1,72 @@
+A typical object:
+
+const user = {
+    name: "Mike",
+    age: 34,
+    job: "Developer",
+    greeting () { //can include funx in an object//
+        console.log("this sucks");
+        console.log(this.age);//access data for this object
+        return "Welcome to work!"
+    }
+}
+
+//Access the object via dot notation:
+console.log(user.name);
+//To run the funx:
+user.greeting();
+
+//Can create class or "blueprint" to create objects
+
+class User {
+    constructor(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+    greeting () { //can include funx in an object//
+        console.log("this sucks");
+        console.log(this.age);//access data for this object
+        return "Welcome to work!"
+    }
+
+}
+
+//To access and use class, think like Java:
+const user1 new User("Mike", 34, "Developer");
+console.log(user1);//returns whole object
+//To access funx inside of class:
+user1.greeting();
+
+//Array Stuff
+const hobbies = [];//can fill brackets with stuff
+const hobbies = ["Sports", "Cooking", "Reading"];
+//Access values by index
+console.log(hobbies[0]);
+
+//Array utilities, e.g.:
+* findIndex
+* forEach
+* includes
+* indexOf
+* join
+* keys
+* lastIndexOf
+* length
+* map
+* pop
+* push
+
+//Syntax is "arrayName.utilityName"
+hobbies.push(something);
+const index = hobbies.findIndex((item) => {
+    return item === "Sports"
+});
+
+//Alternately,
+const index = hobbies.findIndex((item) => item === "Sports");//returns boolean
+
+//Map returns copy of array and can transform array elements into new things
+hobbies.map((item) => item + " !")
+hobbies.map((item) => ({text: item}));//String values into object;curly braces inside parentheses
+

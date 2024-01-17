@@ -1,8 +1,10 @@
 {
+    "type": "module",
     "name": "javascript-refresher-start",
     "version": "1.0.0",
     "description": "",
     "main": "index.html",
+    
     "scripts": {
       "start": "parcel index.html --open",
       "build": "parcel build index.html"
