@@ -1,0 +1,6 @@
+React alleviates the problem of manipulating the DOM with traditional JS code like:
+
+const list = document.querySelector("ul");
+list.remove();
+
+React with JSX does things like this for us by transpiling the code into something the web browser can use to change and interact with the DOM for us.

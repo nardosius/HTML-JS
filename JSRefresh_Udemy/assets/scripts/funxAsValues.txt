@@ -1,0 +1,35 @@
+Functions can be passed as parameters and stored in constants:
+
+function handleTimeout() {
+    console.log("Timed out!");
+}
+
+const handleTimeout2 = () => {
+    console.log("Timed out ... again!");
+}
+
+setTimeout(handleTimeout, 2000);//funx passed as parameter using only the funx name
+
+setTimeout(handleTimeout());//this will pass the return value of the function as a parameter rather than holding the funx to be executed by the containing funx (setTimeout is a built-in funx)
+
+function greeter(greetFn) {
+    greetFn();
+}
+
+greeter(() => console.log("Hi")); --> "Hi" @ console
+//greeter executes the console.log command passed in as a parameter
+
+Functions can be defined inside of other funtions:
+
+function init() {
+    function greet() {
+        console.log("Hi!");
+    }
+    greet();
+}
+
+greet(); --> ERROR, greet nested inside init(), cannot be accessed outside. Must execute init()
+--->
+init();
+
+Reference vs. Primitive values ---> primitive values cannot be edited. Reference values are stored in memory for access @ some point in execution; value can change but memory address does not.
