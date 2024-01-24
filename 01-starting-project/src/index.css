@@ -73,6 +73,12 @@ p {
   margin: 0 0 1.5rem 0;
 }
 
+#prompt {
+  text-align: left;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0 0 1.5rem 0;
+}
+
 #core-concepts ul {
   list-style: none;
   padding: 0;

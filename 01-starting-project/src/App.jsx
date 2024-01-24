@@ -1,54 +1,36 @@
 import React from "react";
-//import statement below will ensure the inclusion and packaging of required assets
-import reactImg from "./assets/react-core-concepts.png";
+import { useState } from "react";
 import { CORE_CONCEPTS } from "./data";
-
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  const description = reactDescriptions[genRandomInt(2)];
-  // IMPORTANT: const can hold single value or represent a funx
-  return (
-    <header>
-      {/* the img tag will reference an import statement instead */}
-      {/* <img src="src/assets/react-core-concepts.png" alt="Stylized atom" /> */}
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {/* 'description' below is actually a const that executes a funx */}
-        {description} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  )
-}
-
-// function CoreConcept(props) {//"props is passed to receive values from Component tag"
-//   return (
-//     <li>
-//       <img src={props.image} alt={props.title}/>
-//       <h3>{props.title}</h3>
-//       <p>{props.description}</p>
-//     </li>
-//   );
-// }
-
-//Can destructure previous code thusly:
-function CoreConcept({image, title, description}) {//curly braces allow direct access to object keys
-  return (
-    <li>
-      <img src={image} alt={title}/>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  );
-}
+import Header from "./components/Header";
+import CoreConcept from "./components/CoreConcept";
+import TabButton from "./components/TabButton";
+import { EXAMPLES } from "./data";
 
 function App() {//<CoreConcept {...}/>Takes all key/value pairs from ea. object in array
+  const [ selectedTopic, setSelectedTopic ] = useState(null);
+
+
+  function handleSelect(selectedButton) {
+    setSelectedTopic(selectedButton);
+    console.log(selectedButton);
+  }
+
+  // ALTERNATIVE WAY TO RENDER BLOCK CONDITIONALLY:
+  // let tabContent = <p id="prompt">Please select a topic.</p>;
+
+  // if (selectedTopic) {
+  //   tabContent = ( <div id="tab-content">
+  //   {/*Notice square brackets to access object EXAMPLES */}            
+  //   <h3>{EXAMPLES[selectedTopic].title}</h3>
+  //   <p>{EXAMPLES[selectedTopic].description}</p>
+  //   <pre>
+  //     <code>
+  //     {EXAMPLES[selectedTopic].code}
+  //     </code>
+  //   </pre>
+  //   </div>);
+  // }
+  
   return (
     
     <div>
@@ -62,10 +44,34 @@ function App() {//<CoreConcept {...}/>Takes all key/value pairs from ea. object 
           <CoreConcept {...CORE_CONCEPTS[2]} />
           <CoreConcept {...CORE_CONCEPTS[3]} />
         </ul>
-        </section>        
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            {/*The args passed to handleClick must match the keys of the object containing
+            the value you are extracting. When selectedButton is entered, that value
+            is put into square brackets of the object to be accessed, e.g., EXAMPLES.
+            Notice that access to EXAMPLES in data.js is allowed just by importing it. */}
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+          </menu>
+          {!selectedTopic ? ( <p id="prompt">Please select a topic.</p> ) : ( <div id="tab-content">
+            {/*Notice square brackets to access object EXAMPLES */}            
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+            </div> )}
+        </section>       
       </main>
     </div>
   );
 }
+
 
 export default App;
