@@ -1,30 +1,31 @@
-import { useState } from "react";
-
-const initialGameBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-];
-
-export default function GameBoard() {//nested map() yields a grid
-const [gameBoard, setGameBoard] = useState(initialGameBoard);
-
-function handleSelectSquare(rowIndex, colIndex) {
-    setGameBoard((prevGameBoard) =>  {
-            const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
-            updatedBoard[rowIndex][colIndex] = 'X';
-            return updatedBoard;
-    });
-}
-
-    return <ol id="game-board">
-        {gameBoard.map((row, rowIndex) => <li key={rowIndex}>
-            <ol>
-                {row.map((playerSymbol, colIndex) => <li key={colIndex}>
-                    <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
-                    </li>)}
-            </ol>
-        </li>)}
+export default function GameBoard({ onSelectSquare, board }) {
     
-    </ol>;//remember, when elements are mapped, they really need a KEY!
+//nested map() yields a grid
+// const [gameBoard, setGameBoard] = useState(initialGameBoard);
+
+// function handleSelectSquare(rowIndex, colIndex) {
+//     setGameBoard((prevGameBoard) =>  {
+//             const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
+//             updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+//             return updatedBoard;
+//     });
+
+//     onSelectSquare();//actually calling handleSelectSquare() from App.jsx
+// }
+
+    return (
+    <ol id="game-board">
+        {board.map((row, rowIndex) => (<li key={rowIndex}>
+            <ol>
+                {row.map((playerSymbol, colIndex) => (
+                  <li key={colIndex}>
+                    <button onClick={() => onSelectSquare(rowIndex, colIndex)} disabled={playerSymbol !== null}>{playerSymbol}</button>
+                    </li>
+                    ))}
+            </ol>
+        </li>
+        ))}
+    
+    </ol>//remember, when elements are mapped, they really need a KEY!
+    );
 }
