@@ -1,5 +1,5 @@
 export default function GameBoard({ onSelectSquare, board }) {
-    
+    /*BEGIN DEPRECATED CODE */ 
 //nested map() yields a grid
 // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 

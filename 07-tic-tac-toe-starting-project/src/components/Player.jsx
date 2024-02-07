@@ -15,7 +15,7 @@ export default function Player({initialName, symbol, isActive, onChangeName}) {
     }
     function handleChange(e) {        
         setPlayerName(e.target.value);
-//ANY time you are trying to set and save the state by entering a value into a field, you MUST use "e.target.value" as an arg for the set() funx.
+//ANY time you are trying to set and save the state by entering a value into a field, you MUST use "e.target.value" as an arg for the set() funx. Handle clicks and handle changes go together. The handle click initiates the state funx, the handle change saves it.
     }
 
     let enteredName = <span className="player-name">{playerName}</span>;
