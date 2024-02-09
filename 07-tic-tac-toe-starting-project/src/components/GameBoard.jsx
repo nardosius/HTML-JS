@@ -12,7 +12,7 @@ export default function GameBoard({ onSelectSquare, board }) {
 
 //     onSelectSquare();//actually calling handleSelectSquare() from App.jsx
 // }
-
+    /*END DEPRECATED CODE */
     return (
     <ol id="game-board">
         {board.map((row, rowIndex) => (<li key={rowIndex}>
