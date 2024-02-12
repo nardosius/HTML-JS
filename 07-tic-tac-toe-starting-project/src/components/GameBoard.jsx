@@ -25,7 +25,7 @@ export default function GameBoard({ onSelectSquare, board }) {
             </ol>
         </li>
         ))}
-    
-    </ol>//remember, when elements are mapped, they really need a KEY!
+    {/**"board" represents the entire array of arrays that is defined in the const var "initialGameboard". "row" represents an inner array contained within initialGameboard. To access all of the elements in the inner arrays, we loop over them with an enhanced for loop (see function deriveGameboard in App.jsx) */}
+    </ol>//remember, when elements are mapped, they really need a KEY! Anytime you equate a var w/ a funx, need to pass all appropriate args that original funx requires; see onSelectSquare
     );
 }

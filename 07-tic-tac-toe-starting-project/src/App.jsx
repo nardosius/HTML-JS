@@ -28,10 +28,10 @@ function deriveActivePlayer(gameTurns) {
   return currrentPlayer;  
 }
 
-function deriveGameBoard(gameTurns) {
+function deriveGameBoard(gameTurns) {//example of derived state
   let gameBoard = [...INITIAL_GAME_BOARD.map(array => [...array])];
 
-    for (const turn of gameTurns) {
+    for (const turn of gameTurns) {//if array is empty, JS will not execute for loop
         const { square, player } = turn;
         const { row, col } = square;
 
