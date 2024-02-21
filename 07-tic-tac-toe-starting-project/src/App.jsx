@@ -58,8 +58,7 @@ function deriveWinner(gameBoard, players) {
 function App() {
   // need to use state funx to keep track of players
   const [players, setPlayers] = useState(PLAYERS);
-  const [gameTurns, setGameTurns] = useState([]);
-  
+  const [gameTurns, setGameTurns] = useState([]);  
   
   const activePlayer = deriveActivePlayer(gameTurns);
   const gameBoard = deriveGameBoard(gameTurns)  ;
