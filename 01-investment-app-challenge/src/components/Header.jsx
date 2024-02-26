@@ -1,7 +1,10 @@
 import headerLogo from '../assets/investment-calculator-logo.png';
 
-export function Header() {
+export default function Header() {
     return (
-        <img id="header" src={headerLogo} alt='Money bag img' height={150} width={150}/>
+        <header id="header">
+        <img src={headerLogo} alt='Money bag img' height={150} width={150}/>
+        <h1>Investment Calculator</h1>
+        </header>
     );
 }

@@ -21,7 +21,6 @@ main h1 {
 }
 
 #header {
-  display: flex;
   text-align: center;
   margin: 3rem auto;
 }
